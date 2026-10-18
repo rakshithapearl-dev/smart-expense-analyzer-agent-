@@ -106,10 +106,11 @@ def load_transactions():
         )
 
 def parse_csv(uploaded_file):
-        if uploaded_file.size > 5 * 1024 * 1024:
+    if uploaded_file.size > 5 * 1024 * 1024:
         return None, "File is too large. Maximum size is 5 MB."
 
 data = pd.read_csv(uploaded_file, nrows=10001)
+
 
 if len(data) > 10000:
         return None, "The CSV has more than 10,000 rows. Please split it."
